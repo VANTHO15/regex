@@ -189,3 +189,9 @@ foo\B
     1a2%c	Khớp vì chuỗi có ký tự không phải chữ và số 1a2%c
     Python	Không khớp vì chuỗi chỉ có ký tự chữ cái
 ```
+# Regular Expression trong Python
+- **re.findall()**
+- Phương thức re.findall() trả về một danh sách các chuỗi chứa tất cả các kết quả khớp với pattern đưa ra.
+- findall(partern, string)
+    - pattern là RegEx.
+    - string là chuỗi cần so khớp
