@@ -24,7 +24,7 @@ else:
   print("Tim kiem khong thanh cong.")
 ```
 ## Các cú pháp pattern cơ bản [] . ^ $ * + ? {} () \ |
-# 1 Dấu []: Dấu ngoặc vuông sử dụng để thể hiện tập các ký tự bạn muốn khớp
+-**1 Dấu []: Dấu ngoặc vuông sử dụng để thể hiện tập các ký tự bạn muốn khớp**
 ```text
 [abc] :
     a	Khớp với ký tự a
@@ -39,14 +39,14 @@ else:
 - [^0-9] nghĩa là khớp với các chuỗi không có ký tự chữ số nào
 - Các ký tự đặc biệt trong [] sẽ được coi như ký tự thông thường.
 - [(+)] khớp với bất kỳ chuỗi nào có ký tự (, + hoặc )
-# 2 Dấu . : Dấu chấm khớp với bất kỳ ký tự đơn thông thường nào ngoại trừ ký tự tạo dòng mới '\n'
+**2 Dấu . : Dấu chấm khớp với bất kỳ ký tự đơn thông thường nào ngoại trừ ký tự tạo dòng mới '\n'**
 ```text
 ..
     a	Không khớp vì chỉ có một ký tự
     ac	Khớp vì có hai ký tự
     acd	Khớp vì có hai ký tự trở lên
 ```
-# 3 Dấu ^ : Biểu tượng dấu mũ ^ được sử dụng để khớp ký tự đứng đầu một chuỗi.
+**3 Dấu ^ : Biểu tượng dấu mũ ^ được sử dụng để khớp ký tự đứng đầu một chuỗi.**
 ```text
 ^a
     a	Khớp vì bắt đầu bằng a
@@ -56,14 +56,14 @@ else:
     abc	Khớp vì bắt đầu bằng ab
     acb	Không khớp, bắt đầu bằng a nhưng ký tự tiếp theo không phải b
 ```
-# 4 Dấu $ : Biểu tượng Dollar $ được sử dụng để khớp ký tự kết thúc một chuỗi.
+**4 Dấu $ : Biểu tượng Dollar $ được sử dụng để khớp ký tự kết thúc một chuỗi.**
 ```text
 a$
     a	Khớp vì kết thúc bằng a
     thona	Khớp vì kết thúc bằng a
     cab	Không khớp vì a không nằm ở vị trí cuối cùng
 ```
-# 5 Dấu * : Biểu tượng dấu hoa thị * có thể khớp với chuỗi có hoặc không có ký tự được định nghĩa trước nó. Ký tự này có thể được lặp lại nhiều lần mà không bị giới hạn số lượng
+**5 Dấu * : Biểu tượng dấu hoa thị * có thể khớp với chuỗi có hoặc không có ký tự được định nghĩa trước nó. Ký tự này có thể được lặp lại nhiều lần mà không bị giới hạn số lượng**
 ```text
 ma*n
     mn	Khớp vì ký tự trước * có thể không xuất hiện
@@ -72,7 +72,7 @@ ma*n
     main	Không khớp vì không giống pattern, n không nằm kế a
     woman	Khớp vì có xuất hiện đầy đủ các ký tự
 ```
-# 6 Dấu + : Biểu tượng dấu cộng + có thể khớp với chuỗi có một hoặc nhiều ký tự được định nghĩa trước nó. Ký tự này có thể được lặp lại nhiều lần mà không bị giới hạn số lượng.
+**6 Dấu + : Biểu tượng dấu cộng + có thể khớp với chuỗi có một hoặc nhiều ký tự được định nghĩa trước nó. Ký tự này có thể được lặp lại nhiều lần mà không bị giới hạn số lượng.**
 ```text
 ma+n
     mn	Không khớp vì ký tự a trước + không xuất hiện
@@ -81,7 +81,7 @@ ma+n
     main	Không khớp vì không giống pattern, n không nằm kế a
     woman	Khớp vì có xuất hiện đầy đủ các ký tự
 ```
-# 7 Dấu ? : Biểu tượng dấu chấm hỏi có thể khớp với chuỗi có hoặc không có ký tự được định nghĩa trước nó. Ký tự này không thể được lặp lại nhiều lần, chỉ giới hạn số lượng với một lần xuất hiện
+**7 Dấu ? : Biểu tượng dấu chấm hỏi có thể khớp với chuỗi có hoặc không có ký tự được định nghĩa trước nó. Ký tự này không thể được lặp lại nhiều lần, chỉ giới hạn số lượng với một lần xuất hiện**
 ```text
 ma?n
     mn	Khớp vì ký tự trước ? có thể không xuất hiện
@@ -90,7 +90,7 @@ ma?n
     main	Không khớp vì không giống pattern, n không nằm kế a
     woman	Khớp vì có xuất hiện đầy đủ các ký tự
 ```
-# 8 Dấu {} : Dấu ngoặc nhọn sử dụng theo công thức tổng quát: {n,m}, đại diện cho việc ký tự đằng trước nó có thể xuất hiện tối thiểu n lần vào tối đa m lần. n và m là số nguyên dương và n <= m.
+**8 Dấu {} : Dấu ngoặc nhọn sử dụng theo công thức tổng quát: {n,m}, đại diện cho việc ký tự đằng trước nó có thể xuất hiện tối thiểu n lần vào tối đa m lần. n và m là số nguyên dương và n <= m.**
 - Nếu bỏ trống n, giá trị này mặc định bằng 0.
 - Nếu bỏ trống m, giá trị này mặc định là vô hạn.
 ```text
@@ -107,7 +107,7 @@ a{2,3}
     12 and 345673	Khớp vì thỏa mãn điều kiện: 12 và 345673
     1 and 2	Không khớp vì chuỗi chỉ có 1 chữ số
 ```
-# 9 Dấu | : Biểu tượng dấu sổ dọc | này có thể khớp với chuỗi tồn tại 1 trong 2 ký tự được định nghĩa trước và sau nó.
+**9 Dấu | : Biểu tượng dấu sổ dọc | này có thể khớp với chuỗi tồn tại 1 trong 2 ký tự được định nghĩa trước và sau nó.**
 ```text
 a|b
     cde	Không khớp vì a, b đều không xuất hiện
@@ -115,7 +115,7 @@ a|b
     acdbea	Khớp vì thỏa mãn điều kiện, a và b đều xuất hiện: acdbea
 ```
 - Ở đây, a|b khớp với bất kỳ chuỗi nào chứa a hoặc b
-- # 10 Dấu () : Dấu ngoặc đơn () được sử dụng để gom nhóm các pattern lại với nhau, chuỗi sẽ khớp với biểu thức chính quy bên trong dấu ngoặc này.
+**10 Dấu () : Dấu ngoặc đơn () được sử dụng để gom nhóm các pattern lại với nhau, chuỗi sẽ khớp với biểu thức chính quy bên trong dấu ngoặc này.**
 - Ví dụ: (a|b|c)xz khớp với bất kỳ chuỗi nào có a hoặc b hoặc c đứng trước xz
 ```text
 (a|b|c)xz
@@ -123,7 +123,7 @@ a|b
     abxz	Khớp vì thỏa mãn điều kiện, có b xuất hiện sát trước xz: abxz
     axz cabxz	Khớp vì thỏa mãn điều kiện, cả a và b đều xuất hiện sát trước xz: axz cabxz
 ```
-# 11 Dấu \ : Dấu gạch chéo ngược được sử dụng để thoát các ký tự đặc biệt, nghĩa là khi đứng trước một kí tự đặc biệt, \ sẽ biến kí tự này thành một kí tự thường, bạn có thể tìm kiếm kí tự đặc biệt này trong chuỗi như các kí tự thường khác.
+**11 Dấu \ : Dấu gạch chéo ngược được sử dụng để thoát các ký tự đặc biệt, nghĩa là khi đứng trước một kí tự đặc biệt, \ sẽ biến kí tự này thành một kí tự thường, bạn có thể tìm kiếm kí tự đặc biệt này trong chuỗi như các kí tự thường khác.**
 - Một số pattern đi với \
 - 1 \A - Khớp với các ký tự theo sau nó nằm ở đầu chuỗi.
 ```text
@@ -387,3 +387,30 @@ World
 Hello\nWorld
 ```
 - Ở ví dụ trên khi một chuỗi bình thường được in, ký tự thoát '\n' được xử lý để giới thiệu một dòng mới. Tuy nhiên, do toán tử chuỗi thô 'r' nên hiệu ứng của ký tự thoát không được dịch theo nghĩa của nó.
+
+- ^The: khớp với bất kì chuỗi nào bắt đầu với 'The'
+- end$: khớp với bất kì chuỗi nào kết thức bằng 'end'
+- ^The end$: khớp chuỗi chính xác là 'The end'
+- roar: khớp với bất kì chuỗi nào có chuỗi 'roar' bên trong
+- abc*: khớp với chuỗi 'ab', theo sau là không có gì hoặc nhiều chữ c (vd: 'ab', 'abc', 'abccc')
+- abc+: tương tự như trên, nhưng ở đây bắt buộc phải có ít nhất 1 chữ c (vd: 'abc', 'abccc')
+- abc?: tương tự cái đầu tiên, nhưng theo sau lại chỉ được có 1 chữ c (vd: 'ab', 'abc')
+- abc{2}: khớp với chuỗi ab, theo sau là 2 chữ c (vd: 'abcc')
+- abc{2,}: tương tự trên, nhưng theo sau có thể 2 hoặc nhiều chữ c hơn (vd: 'abcc', 'abccccc')
+- abc{2,5} : tương tự trên, theo sau là 2 đến 5 chữ c
+- a(bc)* : khớp với chuỗi có chữ a, theo sau là 0 hoặc nhiều cụm 'bc' (vd: 'ag', 'abc', 'abcbcbc')
+- a(bc){2,5} : kết hợp của 2 cái trên, ta có chuỗi có chữ a, theo sau là 2 đến 5 cụm 'bc'
+- a(b|c): chuỗi có chữ a, theo sau là b hoặc c (vd: 'ab', 'ac', 'abd')
+- a[bc]: tương tự như trên
+- \d => kí tự chữ số (vd: 'a2b', 'a42c')
+- \w => tất cả các kí tự (chữ hoa, chữ thường, chữ số, dấu gạch dưới)
+- \s => các kí tự cách, bao gồm cả tab và xuống dòng
+- . => tất cả các kí tự
+- Phủ định của \d, \w, \s là \D,\W, \S, Ví dụ như \D sẽ trả về kết quả nghịch đảo của \d, tức là là tất cả các kí tự không phải chữ số.
+- Ngoài ra để tránh nhầm lẫn thì với các kí tự đặc biệt ^.[$()|*+?{\ phải thêm \ đằng trước, ví dụ một chuỗi có kí tự $, theo sau là 1 chữ số, ta viết \$\d
+- \babc\b => thực hiện tìm kiếm toàn bộ từ, tức là chỉ tìm từ nào chính xác là abc
+- \blà một điểm neo giống như ^ hoặc $, nhưng neo cả 2 đầu, đi kèm với nó là phủ định \B, ví dụ như
+- \Babc\B sẽ khớp với các chuỗi mà có kí tự 'abc' được bao quanh bởi các kí tự khác (ví dụ: 'gabcy')
+- Phía trước và phía sau — (?=) và (?<=)
+    - d(?=r) => khớp với kí tự d chỉ khi phía sau nó là kí tự r, nhưng r không phải 1 phần của chuỗi regex (ví dụ: drone)
+    - (?<=r)d => tương tự trên, nhưng d phải đi ngay sau r (ví dụ: third)
