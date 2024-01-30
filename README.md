@@ -125,13 +125,13 @@ a|b
 ```
 # 11 Dấu \ : Dấu gạch chéo ngược được sử dụng để thoát các ký tự đặc biệt, nghĩa là khi đứng trước một kí tự đặc biệt, \ sẽ biến kí tự này thành một kí tự thường, bạn có thể tìm kiếm kí tự đặc biệt này trong chuỗi như các kí tự thường khác.
 - Một số pattern đi với \
-- 1. \A - Khớp với các ký tự theo sau nó nằm ở đầu chuỗi.
+- 1 \A - Khớp với các ký tự theo sau nó nằm ở đầu chuỗi.
 ```text
 \Athe
     the sun	Khớp vì the nằm ở đầu chuỗi
     In the sun	Không khớp vì the không nằm ở đầu chuỗi
 ```
-- 2. \b - Khớp với các ký tự được chỉ định nằm ở đầu hoặc cuối của từ.
+- 2 \b - Khớp với các ký tự được chỉ định nằm ở đầu hoặc cuối của từ.
 ```text
 \bfoo
     football	Khớp vì thỏa mãn điều kiện, foo nằm ở đầu chuỗi
@@ -141,7 +141,7 @@ foo\b
     the afoo test	Khớp vì thỏa mãn điều kiện, foo nằm ở cuối từ thứ 2 trong chuỗi
     the afootest	Không khớp vì foo nằm ở giữa từ trong chuỗi.
 ```
-- 3. \B - Trái ngược với \b, khớp với các ký tự được chỉ định không nằm ở đầu hoặc cuối của từ.
+- 3 \B - Trái ngược với \b, khớp với các ký tự được chỉ định không nằm ở đầu hoặc cuối của từ.
 ```text
 \Bfoo
     football	Không khớp vì foo nằm ở đầu chuỗi
@@ -152,38 +152,38 @@ foo\B
     the afoo test	Không khớp vì foo nằm ở cuối từ thứ 2 trong chuỗi
     the afootest	Khớp vì foo nằm ở giữa từ trong chuỗi.
 ```
-- 4. \d - Khớp với các ký tự là chữ số, tương đương với [0-9]
+- 4 \d - Khớp với các ký tự là chữ số, tương đương với [0-9]
 ```text
 \d
     12abc3	Khớp vì thỏa mãn điều kiện: 12abc3
     Python	Không khớp vì không có số nguyên nào xuất hiện
 ```
-- 5. \D - Khớp với các ký tự không phải số, tương đương với [^0-9]
+- 5 \D - Khớp với các ký tự không phải số, tương đương với [^0-9]
 ```text
 \D
     1ab34"50	Khớp vì thỏa mãn điều kiện: 1ab34"50
     1345	Không khớp vì chuỗi toàn số nguyên xuất hiện
 ```
-- 6. \s - Khớp với bất kỳ ký tự khoảng trắng nào, tương đương với [ \t\n\r\f\v]
+- 6 \s - Khớp với bất kỳ ký tự khoảng trắng nào, tương đương với [ \t\n\r\f\v]
 ```text
 \s
     Python RegEx	Khớp vì chuỗi có khoảng trắng
     PythonRegEx	Không khớp vì chuỗi không có khoảng trắng
 ```
-- 7. \S - Khớp với bất kỳ ký tự nào không phải khoảng trắng, tương đương với [^ \t\n\r\f\v]
+- 7 \S - Khớp với bất kỳ ký tự nào không phải khoảng trắng, tương đương với [^ \t\n\r\f\v]
 ```text
 \S
     a b	Khớp vì chuỗi có ký tự a b
         Không khớp vì chuỗi toàn bộ là khoảng trắng
 ```
-- 8. \w - Khớp với bất kỳ ký tự chữ cái và chữ số nào, tương đương với [a-zA-Z0-9_]
+- 8 \w - Khớp với bất kỳ ký tự chữ cái và chữ số nào, tương đương với [a-zA-Z0-9_]
 - Lưu ý: Dấu gạch dưới _ cũng được coi là một ký tự chữ cái và chữ số.
 ```text
 \w
     12&": ;c	Khớp vì chuỗi có ký tự chữ và số 12&": ;c
     %"> !	Không khớp vì chuỗi không có ký tự chữ và số
 ```
-- 9. \W - Khớp với bất kỳ ký tự nào không phải là chữ cái và chữ số, tương đương với [^a-zA-Z0-9_]
+- 9 \W - Khớp với bất kỳ ký tự nào không phải là chữ cái và chữ số, tương đương với [^a-zA-Z0-9_]
 ```text
 \w
     1a2%c	Khớp vì chuỗi có ký tự không phải chữ và số 1a2%c
