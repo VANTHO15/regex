@@ -195,3 +195,195 @@ foo\B
 - findall(partern, string)
     - pattern là RegEx.
     - string là chuỗi cần so khớp
+- Ví dụ: Trích xuất các số từ chuỗi cho trước sau: "hello 12 hi 89. Howdy 34"
+```text
+import re
+
+string = 'hello 12 hi 89. Howdy 34'
+pattern = '\d+'
+
+result = re.findall(pattern, string) 
+print(result)
+```
+- Kết quả trả về: ['12', '89', '34']
+- **re.split()**
+- Phương thức re.split() dùng biểu thức chính quy để ngắt chuỗi thành các chuỗi con và trả về danh sách các chuỗi con này.
+- re.split(pattern, string, maxsplit)
+    - pattern là RegEx.
+    - string là chuỗi cần so khớp
+    - maxsplit (số nguyên) là số chuỗi tối đa sẽ được ngắt. Nếu để trống thì Python sẽ so khớp và cắt tất cả các chuỗi đạt điều kiện.
+- Ví dụ: Ngắt tại vị trí có ký tự khoảng trắng:
+```text
+import re
+
+string = 'The rain in Vietnam.'
+pattern = '\s'
+
+result = re.split(pattern, string) 
+print(result)
+```
+- Kết quả trả về: ['The', 'rain', 'in', 'Vietnam.']
+- Ví dụ: Ngắt chuỗi ở ký tự khoảng trắng đầu tiên:
+```text
+import re
+
+string = 'The rain in Vietnam.'
+pattern = '\s'
+
+result = re.split(pattern, string, 1) 
+print(result)
+```
+- Kết quả: ['The', 'rain in Vietnam.']
+- Nếu không tìm thấy pattern, re.split() trả về danh sách chứa chuỗi rỗng.
+- **re.sub()**
+- Re.sub() sẽ thay thế tất cả các kết quả khớp với pattern trong chuỗi bằng một nội dung khác được truyền vào và trả về chuỗi đã được sửa đổi.
+- re.sub(pattern, replace, string, count)
+    - pattern là RegEx.
+    - replace là nội dung thay thế cho chuỗi kết quả khớp với pattern
+    - string là chuỗi cần so khớp
+    - count (số nguyên) là số lần thay thế. Nếu để trống thì Python sẽ coi giá trị này bằng 0, so khớp và thay thế tất cả các chuỗi đạt điều kiện
+- Ví dụ: Code chương trình xóa tất cả các khoảng trắng
+```text
+import re
+
+# chuỗi nhiều dòng
+string = 'abc 12\
+de 23 \n f45 6'
+
+# so khớp các ký tự khoảng trắng
+pattern = '\s+'
+
+# chuỗi rỗng
+replace = ''
+
+new_string = re.sub(pattern, replace, string) 
+print(new_string)
+```
+- Kết quả trả về: abc12de23f456
+- 
+- Ví dụ: Code chương trình xóa 2 khoảng trắng đầu tiên
+```text
+import re
+
+# chuỗi nhiều dòng
+string = 'abc 12\
+de 23 \n f45 6 \n website'
+
+# so khớp các ký tự khoảng trắng
+pattern = '\s+'
+replace = ''
+
+new_string = re.sub(r'\s+', replace, string, 2) 
+print(new_string)
+```
+- Kết quả trả về: abc12de23 f45 6 website
+- **re.search()**
+- Phương thức re.search() sử dụng để tìm kiếm chuỗi phù hợp với pattern RegEx. Nếu tìm kiếm thành công, re.search() trả về đối tượng khớp, nếu không, nó trả về None
+- search(pattern, string)
+    - pattern là RegEx.
+    - string là chuỗi cần so khớp
+```text
+import re
+
+string = "thonv12 hello"
+
+# Kiem tra xem 'thonv12' co nam o dau chuoi khong
+match = re.search('\Athonv12', string)
+
+if match: # nếu tồn tại chuỗi khớp
+  print("Tim thay 'thonv12' nam o dau chuoi") # in ra thong bao nay
+else:
+  print("'thonv12' khong nam o dau chuoi") # khong thi in ra thong bao nay
+````
+- Ở ví dụ này, match chứa đối tượng phù hợp khớp với pattern.
+# **Một số phương thức và thuộc tính thường được sử dụng với đối tượng match**
+- **match.group()**
+- Phương thức group() trả về những phần của chuỗi khớp với pattern.
+  ```text
+  import re
+
+string = '39801 356, 2102 1111'
+
+pattern = '(\d{3}) (\d{2})'
+
+match = re.search(pattern, string)
+
+if match: #nếu tồn tại chuỗi khớp
+  print(match.group()) # in ra kết quả
+else:
+  print("Không khớp") # Không thì hiện thông báo
+
+# Output: 801 35
+  ```
+- Ở đây, biến match chứa đối tượng match.
+- Ta có pattern là (\d{3}) (\d{2}) chia làm hai nhóm nhỏ (\d{3}) và (\d{2}). Bạn có thể nhận được một phần của chuỗi tương ứng với các nhóm con trong ngoặc đơn này như sau:
+```text
+>>> match.group(1)
+'801'
+
+>>> match.group(2)
+'35'
+
+>>> match.group(1, 2)
+('801', '35')
+
+>>> match.groups()
+('801', '35')
+```
+- **match.start()**
+- Hàm start() trả về chỉ mục bắt đầu của chuỗi con phù hợp. Tương tự, end() trả về chỉ mục kết thúc của chuỗi con phù hợp.
+```text
+>>> match.start()
+2
+>>> match.end()
+8
+```
+- Hàm span() trả về tuple chứa chỉ mục bắt đầu và kết thúc của phần chuỗi phù hợp.
+```text
+>>> match.span()
+(2, 8)
+```
+- **match.re và match.string**
+- Thuộc tính re của đối tượng match sẽ trả về một biểu thức chính quy. Tương tự, thuộc tính string trả về chuỗi đã được truyền trong đoạn code.
+```text
+>>> match.re
+re.compile('(\\d{3}) (\\d{2})')
+>>> match.string
+'39801 356, 2102 1111'
+```
+- **Sử dụng tiền tố r trước RegEx**
+- Khi tiền tố r hoặc R được sử dụng trước một biểu thức chính quy đại diện cho việc chuỗi tiếp sau nó chỉ là những ký tự bình thường.
+- Ví dụ: '\n' là một dòng mới newline, còn r'\n' có nghĩa là chuỗi bao gồm hai ký tự: dấu gạch chéo ngược \ và n
+- Dấu gạch chéo ngược \ được sử dụng để thoát các ký tự như đã nói ở trên. Tuy nhiên, sử dụng tiền tố r trước \ thì nó chỉ là một ký tự bình thường.
+```text
+import re
+
+string = '\n and \r are escape sequences.'
+
+result = re.findall(r'[\n\r]', string) 
+print(result)
+
+# Output: ['\n', '\r']
+```
+- **Chuỗi Raw bằng tiền tố r**
+- RegEx dùng dấu gạch chéo ('\') để chỉ các biểu mẫu đặc biệt hoặc cho phép các ký tự đặc biệt được dùng mà không cần gọi ý nghĩa đặc biệt của chúng. Mặt khác, Python dùng ký tự giống ký tự thoát. Vì thế, Python dùng ký hiệu chuỗi thô.
+- Một chuỗi trở thành chuỗi thô nếu nó có tiền tố r hoặc R trước các biểu tượng trích dẫn. Vì thế, ‘Hello’ là chuỗi bình thường, còn r’Hello’ là một chuỗi thô.
+```text
+>>> normal="Hello"
+>>> print (normal)
+Hello
+>>> raw=r"Hello"
+>>> print (raw)
+Hello
+```
+- Ở những trường hợp bình thường, cả hai không có sự khác biệt. Tuy nhiên, khi ký hiệu thoát được nhúng vào chuỗi, chuỗi bình thường thực sự diễn giải chuỗi thoát, nơi mà chuỗi thô không xử lý ký tự thoát.
+```text
+>>> normal="Hello\nWorld"
+>>> print (normal)
+Hello
+World
+>>> raw=r"Hello\nWorld"
+>>> print (raw)
+Hello\nWorld
+```
+- Ở ví dụ trên khi một chuỗi bình thường được in, ký tự thoát '\n' được xử lý để giới thiệu một dòng mới. Tuy nhiên, do toán tử chuỗi thô 'r' nên hiệu ứng của ký tự thoát không được dịch theo nghĩa của nó.
